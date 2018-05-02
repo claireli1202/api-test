@@ -1,0 +1,41 @@
+--- 
+config: 
+  baseURI: https://www.kuaidi100.com
+cases: 
+  - 
+    testCase: 
+      request:
+        path: /query
+        params:
+            postid: "350757819118"
+            type: huitongkuaidi
+        method: GET
+      extract:
+        $nu: nu
+        $ischeck: ischeck
+        $context0: "data[0].context"
+      validate:
+        statusCode: 200
+        responseBody:
+          nu: "350757819118"
+          ischeck: "1"
+          com: "huitongkuaidi"
+  # - 
+  #   testCase: 
+  #     request:
+  #       path: https://www.baidu.com
+  #     validate:
+  #       statusCode: 200
+  - 
+    testCase: 
+      request:
+        path: /query
+        params:
+            postid: $nu
+            type: huitongkuaidi
+      validate:
+        statusCode: 200
+  -
+    testCase: 
+      request:
+        path: /network

@@ -1,0 +1,25 @@
+--- 
+config: 
+  baseURI: https://www.kuaidi100.com
+cases: 
+  - 
+    testCase: 
+      request:
+        path: /network/www/searchapi.do
+        formParams:
+            method: searchnetwork
+            area: "上海,闵行区,闵行区"
+            company: ""
+            keyword: 闵行区
+            offset: 0
+            size: 8
+            from: "null"
+            channel: 2
+            auditStatus: 0
+        method: POST
+      validate:
+        statusCode: 200
+        responseBody:
+          status: 200
+          message: 成功
+          total: 2
